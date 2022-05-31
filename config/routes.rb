@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'bugs/assign_ticket', to: 'bugs#assign_ticket'
   get 'users/developer_bugs', to: 'users#developer_bugs'
   get 'users/show', to: 'users#show'
+  get 'profile/:id', to: 'users#profile', as: 'user_profile'
   devise_for :users
   devise_scope :users do
     get '/users/sign_out' => 'devise/sessions#destroy'
@@ -20,6 +21,7 @@ Rails.application.routes.draw do
   resources :projects do
     resources :bugs
   end
+
   # post 'bug/update', to: 'bugs#update'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.0'
+ruby '2.7.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
@@ -24,14 +24,15 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'font-awesome-sass', '~> 4.7.0'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
+
+gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 gem 'devise', '~> 4.8'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 5.0'
-#gem 'jquery-rails'
+gem 'jquery-rails'
 gem 'kaminari', '~> 1.2', '>= 1.2.1'
-gem "will_paginate", "~> 3.0.4"
 gem "selectize-rails"
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
