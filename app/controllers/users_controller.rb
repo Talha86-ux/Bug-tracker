@@ -67,7 +67,7 @@ before_action :action_params, only: [:show, :edit_user, :update_user, :destroy]
   end
 
   def profile
-    @user_profile = User.find_by(id: params[:id])
+    @profile = User.find_by(id: params[:id])
   end
 
   private
