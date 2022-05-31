@@ -31,7 +31,7 @@
           <% developer = User.find(d) %>
 
 
-            <li><%= developer.name %> </li>
+            <li><%= link_to developer.name, user_profile_path(developer)	 %> </li>
             <%end %>
             </ul>
 
@@ -52,7 +52,7 @@
         <% qa = User.find(d) %>
 
           <ul>
-            <li><%= qa.name %></li>
+            <li><%= link_to qa.name, user_profile_path(qa)	 %></li>
           </ul>
           <%end %>
         </td>

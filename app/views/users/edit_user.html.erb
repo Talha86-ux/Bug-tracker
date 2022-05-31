@@ -2,7 +2,6 @@
 
 <%=link_to  '<i class="fa fa-angle-double-left"></i>'.html_safe, root_path, class:"space" %>
 
-<%#= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: @user %>
 <%= form_with model: @user, url: users_edit_user_path do |f| %>
   <div class="col-6" style="margin: 0 auto">
@@ -27,6 +26,11 @@
     <%= f.radio_button :role, 'Developer' %> Developer
     <%= f.radio_button :role, 'QA' %> QA
   </div>
+
+    <div class="field mb-3">
+      <%= f.label :employement_status %><br/>
+      <%= f.select(:employement_status, User.employement_statuses.keys.map {|status| [status.titleize,status]}) %>
+    </div>
 <br>
   </div>
 

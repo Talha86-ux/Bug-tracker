@@ -21,6 +21,12 @@
           <%= f.radio_button :role, 'Developer' %> Developer
           <%= f.radio_button :role, 'QA' %> QA
         </div>
+
+        <div class="field mb-3">
+          <%= f.label :employement_status %><br/>
+          <%= f.select(:employement_status, User.employement_statuses.keys.map {|status| [status.titleize,status]}) %>
+        </div>
+
         <div class="field mb-3">
           <%= f.label :password %>
           <% if @minimum_password_length %>

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-before_action :action_params, only: [:show, :edit, :update, :destroy]
+before_action :action_params, only: [:show, :edit_user, :update_user, :destroy]
   def index
     @users = User.all
     @user = Kaminari.paginate_array(@users).page(params[:page]).per(1)
@@ -25,16 +25,6 @@ before_action :action_params, only: [:show, :edit, :update, :destroy]
     end
   end
 
-  # def edit
-  # end
-  # def update
-  #
-  #   if @user.update(user_params)
-  #     redirect_to root_path
-  #   else
-  #     render :edit
-  #   end
-  # end
 
   def new_user
     @user1 = User.new
@@ -54,7 +44,7 @@ before_action :action_params, only: [:show, :edit, :update, :destroy]
   end
 
   def update_user
-    @user = User.find(user_params[:id])
+    @user = User.find_by_id(user_params[:id])
 
     if @user.update(user_params)
 
@@ -67,7 +57,7 @@ before_action :action_params, only: [:show, :edit, :update, :destroy]
 
   def destroy
 
-    User.find_by(id: params[:id]).destroy
+    User.find(params[:id]).destroy
 
     redirect_to users_index_path
   end
@@ -75,12 +65,17 @@ before_action :action_params, only: [:show, :edit, :update, :destroy]
   def developer_bugs
     @bugs = Bug.where(assign_developer: current_user.id)
   end
+
+  def profile
+    @user_profile = User.find_by(id: params[:id])
+  end
+
   private
 
   def action_params
-    @user = User.find(params[:id])
+    @user = User.find_by_id(params[:id])
   end
   def user_params
-    params.require(:user).permit(:name, :email, :role, :id, :password)
+    params.require(:user).permit(:name, :email, :role, :id, :password, :employement_status)
   end
 end

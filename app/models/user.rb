@@ -10,4 +10,6 @@ class User < ApplicationRecord
 
   has_many :userbugs, dependent: :destroy
   has_many :bugs, through: :userbugs
+
+  enum employement_status: { permanent: 0, on_probation: 1 }
 end
