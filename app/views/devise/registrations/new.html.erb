@@ -12,6 +12,12 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
   </div>
 
+    <div class="field mb-3">
+      <%= f.label :gender %><br/>
+      <%= f.radio_button :gender, 'M' %> Male
+      <%= f.radio_button :role, 'F' %> Female
+    </div>
+
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>

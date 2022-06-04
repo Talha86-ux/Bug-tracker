@@ -20,7 +20,6 @@
       <ul class="navbar-nav ms-auto">
 
            <% if user_signed_in? %>
-
           <li class="nav-item mx-0 mx-lg-1"><%= link_to 'Edit Profile', edit_user_registration_path, class:"nav-link py-3 px-0 px-lg-3 rounded clr"%></li>
           <%if current_user.role=="Developer" %>
           <li class="nav-item mx-0 mx-lg-1"><%= link_to 'My Bugs', users_developer_bugs_path, class:"nav-link py-3 px-0 px-lg-3 rounded clr"%></li>
@@ -38,9 +37,8 @@
              Profile
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#"data-value= 1><%=current_user.name %></a></li>
-              <li><a class="dropdown-item" href="#" data-value= 2><%=current_user.role %></a></li>
-              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" data-value= 1><%= check_gender(current_user) %></a></li>
+              <li><a class="dropdown-item"  data-value= 2><%=current_user.role %></a></li>
               <li><a class="dropdown-item"><%=current_user.email %></a></li>
             </ul>
           </li>
