@@ -12,4 +12,9 @@ class User < ApplicationRecord
   has_many :bugs, through: :userbugs
 
   enum employement_status: { permanent: 0, on_probation: 1 }
+  before_create :remove_spaces
+  def remove_spaces
+    self.last_name.strip!
+  end
+
 end
